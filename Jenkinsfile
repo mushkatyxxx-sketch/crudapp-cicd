@@ -19,8 +19,8 @@ pipeline {
         stage('Build Images') {
             steps {
                 echo 'Building Docker images...'
-                sh 'docker build -t ${IMAGE_PHP}:${BUILD_NUMBER} ./php'
-                sh 'docker build -t ${IMAGE_MYSQL}:${BUILD_NUMBER} ./mysql'
+                sh 'docker build -f php.Dockerfile -t ${IMAGE_PHP}:${BUILD_NUMBER} .'
+                sh 'docker build -f mysql.Dockerfile -t ${IMAGE_MYSQL}:${BUILD_NUMBER} .'
             }
         }
 
